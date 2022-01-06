@@ -7,12 +7,12 @@
 
 #CHANGE: Set your forked path here for your GitHub repo (and be sure to check in changes as scripts pull resources from GitHub)
 variable "gitpath" {
-  default = "https://github.com/Azure/Unreal-Pixel-Streaming/"
+  default = "https://github.com/SpaceForm-Tech/Unreal-Pixel-Streaming"
 }
 
 #The name of the Unreal 3D App, (i.e., PixelStreamingDemo.exe without the .exe at the end)
 variable "pixel_stream_application_name" {
-  default = "PixelStreamingDemo"
+  default = "Spaceform_KFA_Client"
 }
 
 #Resolution width and height for the 3D App to run (smaller resolutions can fit more streams per GPU and/or a higher FPS)
@@ -44,9 +44,9 @@ variable "streamingPort" {
   default = 8888
 }
 
-#matchmaker vm size
+#matchmaker vm size (Standard_F4s_v2)
 variable "matchmaker_vm_size" {
-  default = "Standard_F4s_v2"
+  default = "Standard_F2s_v2"
 }
 
 #Matchmaker VM login name
