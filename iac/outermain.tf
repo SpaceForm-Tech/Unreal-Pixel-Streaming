@@ -27,7 +27,7 @@ provider "azurerm" {
 variable "git-pat" {
   type        = string
   description = "a Git personal access token to access the repo"
-  default     = " "
+  default     = "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"
 }
 
 ##############################################################
