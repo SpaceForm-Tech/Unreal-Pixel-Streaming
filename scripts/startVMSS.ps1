@@ -39,6 +39,7 @@ $streamingPortArg = "-PixelStreamingPort=" + $port
 $renderOffScreenArg = "-RenderOffScreen"
 $resolutionWidthArg = "-ResX=" + $resolutionWidth
 $resolutionHeightArg = "-ResY=" + $resolutionHeight
+$streamingArg = "-streaming=1"
 
 #Used for https and certs usage for a custom domain versus .cloudapp.azure.com (this replaces that part)
 $customDomainName = ".unrealpixelstreaming.com/"
@@ -100,7 +101,7 @@ if (-not (Test-Path -LiteralPath $PixelStreamerExecFile)) {
 }
 
 try {
-& $PixelStreamerExecFile $audioMixerArg $streamingIPArg $streamingPortArg $renderOffScreenArg -WinX=0 -WinY=0 $resolutionWidthArg $resolutionHeightArg -Windowed -ForceRes
+& $PixelStreamerExecFile $streamingArg $audioMixerArg $streamingIPArg $streamingPortArg $renderOffScreenArg -WinX=0 -WinY=0 $resolutionWidthArg $resolutionHeightArg -Windowed -ForceRes
 $logMessage = "started :" + $PixelStreamerExecFile 
 }
 catch {
