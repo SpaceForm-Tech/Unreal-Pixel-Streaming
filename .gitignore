@@ -1,1 +1,7 @@
 ﻿Spaceform_Template/Saved
+Spaceform_Template_Client.exe - Shortcut.lnk
+iac/.terraform
+iac/terraform.tfstate
+iac/.terraform.lock.hcl
+Engine/Source/Programs/PixelStreaming/WebServers/SignallingWebServer/node_modules
+Engine/Source/Programs/PixelStreaming/WebServers/SignallingWebServer/logs

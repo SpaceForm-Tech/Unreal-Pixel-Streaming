@@ -191,15 +191,15 @@ if(enableRESTAPI) {
 }
 
 if(enableRedirectionLinks) {
-	// Handle standard URL.
+	// Handle standard URL. Added custom code for SF to pass through ?token= to streamingnserver
 	app.get('/', (req, res) => {
 		cirrusServer = getAvailableCirrusServer();
 		if (cirrusServer != undefined) {
-			var hostAddressParts = req.get('Host').split('?');
-			var hostAddress = hostAddressParts[1];
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${hostAddress}`);
+			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+			var token = fullUrl.split('?')[1];
+			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}?${token}`);
 			//console.log(req);
-			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}`);
+			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}?${token}`);
 		} else {
 			sendRetryResponse(res);
 		}

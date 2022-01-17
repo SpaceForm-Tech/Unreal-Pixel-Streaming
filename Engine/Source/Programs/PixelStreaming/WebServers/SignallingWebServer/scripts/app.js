@@ -678,7 +678,7 @@ const ControlSchemeType = {
 var inputOptions = {
 	// The control scheme controls the behaviour of the mouse when it interacts
 	// with the WebRTC player.
-	controlScheme: ControlSchemeType.LockedMouse,
+	controlScheme: ControlSchemeType.HoveringMouse,
 
 	// Browser keys are those which are typically used by the browser UI. We
 	// usually want to suppress these to allow, for example, UE4 to show shader
@@ -689,7 +689,7 @@ var inputOptions = {
 	// user drags with their mouse. We may perform the reverse; a single finger
 	// touch may be converted into a mouse drag UE4 side. This allows a
 	// non-touch application to be controlled partially via a touch device.
-	fakeMouseWithTouches: false
+	fakeMouseWithTouches: true
 };
 
 function resizePlayerStyleToFillWindow(playerElement) {
