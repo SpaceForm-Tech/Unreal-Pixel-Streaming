@@ -195,7 +195,9 @@ if(enableRedirectionLinks) {
 	app.get('/', (req, res) => {
 		cirrusServer = getAvailableCirrusServer();
 		if (cirrusServer != undefined) {
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/`);
+			var hostAddressParts = req.get('Host').split('?');
+			var hostAddress = hostAddressParts[1];
+			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${hostAddress}`);
 			//console.log(req);
 			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}`);
 		} else {
