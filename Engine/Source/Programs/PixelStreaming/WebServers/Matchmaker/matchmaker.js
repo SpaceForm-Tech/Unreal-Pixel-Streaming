@@ -182,8 +182,10 @@ if(enableRESTAPI) {
 	app.get('/signallingserver', cors(),  (req, res) => {
 		cirrusServer = getAvailableCirrusServer();
 		if (cirrusServer != undefined) {
-			res.json({ signallingServer: `${cirrusServer.address}:${cirrusServer.port}`});
-			console.log(`Returning ${cirrusServer.address}:${cirrusServer.port}`);
+			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+			var token = fullUrl.split('?')[1];
+			res.json({ signallingServer: `${cirrusServer.address}:${cirrusServer.port}/?${token}`});
+			console.log(`Returning ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 		} else {
 			res.json({ signallingServer: '', error: 'No signalling servers available'});
 		}
@@ -197,9 +199,9 @@ if(enableRedirectionLinks) {
 		if (cirrusServer != undefined) {
 			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 			var token = fullUrl.split('?')[1];
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}?${token}`);
+			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 			//console.log(req);
-			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}?${token}`);
+			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 		} else {
 			sendRetryResponse(res);
 		}
@@ -209,8 +211,10 @@ if(enableRedirectionLinks) {
 	app.get('/custom_html/:htmlFilename', (req, res) => {
 		cirrusServer = getAvailableCirrusServer();
 		if (cirrusServer != undefined) {
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}`);
-			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}`);
+			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+			var token = fullUrl.split('?')[1];
+			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 		} else {
 			sendRetryResponse(res);
 		}

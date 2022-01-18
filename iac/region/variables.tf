@@ -30,7 +30,7 @@ variable "fps" {
 
 #Number of Virtual Machine Scale Set nodes scaled out on the VMSS cluster (1 stream per GPU VM by default)
 variable "vmss_start_instances" {
-  default = 2
+  default = 10
 }
 
 #How many instances per node you want to run on each GPU (test with lower FPS and resolution to squeeze more on)
@@ -46,7 +46,7 @@ variable "streamingPort" {
 
 #matchmaker vm size (Standard_F4s_v2)
 variable "matchmaker_vm_size" {
-  default = "Standard_F2s_v2"
+  default = "Standard_F4s_v2"
 }
 
 #Matchmaker VM login name
