@@ -5,7 +5,7 @@
 	"LogToFile": true,
 	"enableAutoScale": true,
 	"instancesPerNode": 2,
-	"instanceCountBuffer": 10,
+	"instanceCountBuffer": 3,
 	"percentBuffer": 25,
 	"minInstanceCount": 1,
 	"maxInstanceCount": 20,

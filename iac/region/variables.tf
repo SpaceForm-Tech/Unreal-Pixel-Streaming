@@ -30,7 +30,7 @@ variable "fps" {
 
 #Number of Virtual Machine Scale Set nodes scaled out on the VMSS cluster (1 stream per GPU VM by default)
 variable "vmss_start_instances" {
-  default = 10
+  default = 3
 }
 
 #How many instances per node you want to run on each GPU (test with lower FPS and resolution to squeeze more on)
