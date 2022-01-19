@@ -65,6 +65,7 @@ video{
 h2 { 
 position: absolute;
 width: 100%;
+
 }
 
 h2 span { 
@@ -73,12 +74,22 @@ h2 span {
    font: bold 14px verdana; 
    font-weight: 300;
    letter-spacing: 0px;  
+   padding: 50px; 
+   bottom: 100px;
    background: rgba(0, 0, 0, 0.5);
-   padding: 8px; 
-   bottom: 42px;
-   vertical-align: bottom;
+   vertical-align: top;
 }
 
+himg
+{
+	padding: 30px 0px;
+}
+
+footer{
+	color: white;
+	padding: 10px 0px;
+	text-align: end;
+}
 #configuration {
 	position: absolute;
 	z-index: 100;
@@ -140,7 +151,7 @@ h2 span {
 
 
 body {
-    background: #fafafa;
+    background: #302945;
 }
 
 p {
@@ -176,11 +187,13 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
+	margin-bottom: 200px;
     background: #302945;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
+	margin-bottom: 200px;
     border-bottom: 1px solid #302945;
 }
 

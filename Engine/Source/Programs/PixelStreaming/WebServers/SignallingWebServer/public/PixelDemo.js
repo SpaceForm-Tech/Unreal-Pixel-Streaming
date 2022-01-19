@@ -157,6 +157,9 @@ var grabStyle = 'cursor: grab; cursor: -moz-grab; cursor: -webkit-grab';   // We
 var isFullscreen = false;
 
 function onParagonLoad() {
+	afk.enabled;
+	afk.warnTimeout = 5;
+	afk.closeTimeout = 10;
 	styleAdditional = grabStyle;
 	inputOptions.controlScheme = ControlSchemeType.HoveringMouse;
 	inputOptions.fakeMouseWithTouches = true;

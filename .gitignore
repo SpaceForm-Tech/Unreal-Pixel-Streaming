@@ -5,3 +5,5 @@ iac/terraform.tfstate
 iac/.terraform.lock.hcl
 Engine/Source/Programs/PixelStreaming/WebServers/SignallingWebServer/node_modules
 Engine/Source/Programs/PixelStreaming/WebServers/SignallingWebServer/logs
+*.lnk
+Spaceform_KFA/Saved
