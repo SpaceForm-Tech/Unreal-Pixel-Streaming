@@ -80,6 +80,9 @@ function logmessage() {
 logmessage "Starting BE Setup at:$StartTime"
 logmessage "Disabling Windows Firewalls started"
 New-NetFirewallRule -DisplayName 'Matchmaker-IB-80' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 80
+New-NetFirewallRule -DisplayName 'Matchmaker-IB-80' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 81
+New-NetFirewallRule -DisplayName 'Matchmaker-IB-80' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 82
+New-NetFirewallRule -DisplayName 'Matchmaker-IB-80' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 83
 New-NetFirewallRule -DisplayName 'Matchmaker-IB-9999' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 9999
 New-NetFirewallRule -DisplayName 'Matchmaker-IB-8888' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8888
 New-NetFirewallRule -DisplayName 'Matchmaker-IB-8889' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 8889
@@ -90,6 +93,9 @@ New-NetFirewallRule -DisplayName 'Matchmaker-IB-19303' -Direction Inbound -Actio
 New-NetFirewallRule -DisplayName 'Matchmaker-IB-443' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 443
 
 New-NetFirewallRule -DisplayName 'Matchmaker-OB-80' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 80
+New-NetFirewallRule -DisplayName 'Matchmaker-OB-80' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 81
+New-NetFirewallRule -DisplayName 'Matchmaker-OB-80' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 82
+New-NetFirewallRule -DisplayName 'Matchmaker-OB-80' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 83
 New-NetFirewallRule -DisplayName 'Matchmaker-OB-9999' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 9999
 New-NetFirewallRule -DisplayName 'Matchmaker-OB-19302' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 19302
 New-NetFirewallRule -DisplayName 'Matchmaker-OB-19303' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 19303

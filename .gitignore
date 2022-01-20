@@ -7,3 +7,4 @@ Engine/Source/Programs/PixelStreaming/WebServers/SignallingWebServer/node_module
 Engine/Source/Programs/PixelStreaming/WebServers/SignallingWebServer/logs
 *.lnk
 Spaceform_KFA/Saved
+Engine/Source/Programs/PixelStreaming/WebServers/Matchmaker/node_modules
