@@ -12,7 +12,7 @@ variable "gitpath" {
 
 #The name of the Unreal 3D App, (i.e., PixelStreamingDemo.exe without the .exe at the end)
 variable "pixel_stream_application_name" {
-  default = "Spaceform_KFA_Client"
+  default = "Spaceform_Template_Client"
 }
 
 #Resolution width and height for the 3D App to run (smaller resolutions can fit more streams per GPU and/or a higher FPS)
@@ -30,7 +30,7 @@ variable "fps" {
 
 #Number of Virtual Machine Scale Set nodes scaled out on the VMSS cluster (1 stream per GPU VM by default)
 variable "vmss_start_instances" {
-  default = 3
+  default = 1
 }
 
 #How many instances per node you want to run on each GPU (test with lower FPS and resolution to squeeze more on)

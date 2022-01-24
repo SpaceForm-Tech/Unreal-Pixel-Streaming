@@ -162,7 +162,7 @@ function onParagonLoad() {
 	afk.closeTimeout = 10;
 	styleAdditional = grabStyle;
 	inputOptions.controlScheme = ControlSchemeType.HoveringMouse;
-	inputOptions.fakeMouseWithTouches = true;
+	inputOptions.fakeMouseWithTouches = false;
 	styleWidth = 700;
 	styleHeight = 394;
 
