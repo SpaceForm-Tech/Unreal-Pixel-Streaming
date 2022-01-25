@@ -37,7 +37,10 @@ data "azurerm_subscription" "current" {
 }
 
 locals {
-  base_name                  = var.base_name == "random" ? random_string.base_id.result : var.base_name
+  ##############################################################
+  ##base_name                  = var.base_name == "random" ? random_string.base_id.result : var.base_name
+  ##############################################################
+  base_name                  = "sfstreaming"
   global_resource_group_name = format("%s-%s", local.base_name, lower(var.base_resource_group_name))
   subscription_id            = data.azurerm_client_config.current.subscription_id
   tenant_id                  = data.azurerm_client_config.current.tenant_id

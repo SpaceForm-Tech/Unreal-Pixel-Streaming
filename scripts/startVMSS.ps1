@@ -42,7 +42,7 @@ $resolutionHeightArg = "-ResY=" + $resolutionHeight
 $streamingArg = "-streaming=1"
 
 #Used for https and certs usage for a custom domain versus .cloudapp.azure.com (this replaces that part)
-$customDomainName = ".unrealpixelstreaming.com/"
+$customDomainName = ".stream.spaceform-staging.com/"
 #####################################################################################################
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;

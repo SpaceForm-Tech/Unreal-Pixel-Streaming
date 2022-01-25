@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 variable "base_name" {
-  default = "random"
+  default = "sfstreaming"
 }
 
 #This is the region where the global resource group will be deployed, and global resources like Traffic Manager, etc...

@@ -2,6 +2,7 @@
 // Licensed under the MIT license.
 variable "base_name" {
   type = string
+  default = "sfstreaming"
 }
 
 variable "tenant_id" {
