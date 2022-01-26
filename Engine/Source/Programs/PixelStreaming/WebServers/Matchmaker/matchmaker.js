@@ -141,7 +141,7 @@ if (config.UseHTTPS) {
 // No servers are available so send some simple JavaScript to the client to make
 // it retry after a short period of time.
 function sendRetryResponse(res) {
-	res.send(`All ${cirrusServers.size} Cirrus servers are in use. Retrying in <span id="countdown">10</span> seconds.
+	res.send(`All ${cirrusServers.size} SpaceForm servers are in use. Retrying in <span id="countdown">10</span> seconds.
 	<script>
 		var countdown = document.getElementById("countdown").textContent;
 		setInterval(function() {
@@ -199,7 +199,19 @@ if(enableRedirectionLinks) {
 		if (cirrusServer != undefined) {
 			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 			var token = fullUrl.split('?')[1];
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+
+			var request = require('request');
+
+			app.route(fullUrl).get(function(req, res, next) {
+
+			request.get(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`, function(err, response, body) {
+				if (!err) {
+				req.send(body);
+				}
+			});         
+			});
+
+			//res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 			//console.log(req);
 			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 		} else {
@@ -213,7 +225,18 @@ if(enableRedirectionLinks) {
 		if (cirrusServer != undefined) {
 			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 			var token = fullUrl.split('?')[1];
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+
+			var request = require('request');
+
+			app.route(fullUrl).get(function(req, res, next) {
+
+			request.get(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`, function(err, response, body) {
+				if (!err) {
+				req.send(body);
+				}
+			});         
+			});
+			//res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
 			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 		} else {
 			sendRetryResponse(res);
