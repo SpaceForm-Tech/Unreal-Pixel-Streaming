@@ -214,6 +214,7 @@ if(enableRedirectionLinks) {
 			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 			var token = fullUrl.split('?')[1];
 
+//Trying to add request body to current page so url doesn't change
 //			var request = require('request');
 //
 //			app.route(fullUrl).get(function(req, res, next) {
@@ -224,10 +225,20 @@ if(enableRedirectionLinks) {
 //				}
 //			});         
 //			});
+	
+//Default code for forwarding with added additon to change url to account for our CNAME
+//			if(cirrusServer.address.split('.')[0] == 'vm0')
+//			{
+//				res.redirect(`http://vm0.spaceform.com:${cirrusServer.port}/?${token}`);
+//			}
+//			else {
+//			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+//			//console.log(req);
+//			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+//			}
 
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
-			//console.log(req);
-			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+			res.render(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+
 		} else {
 			sendRetryResponse(res);
 		}
@@ -240,6 +251,7 @@ if(enableRedirectionLinks) {
 			var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 			var token = fullUrl.split('?')[1];
 
+//Trying to add request body to current page so url doesn't change			
 //			var request = require('request');
 //
 //			app.route(fullUrl).get(function(req, res, next) {
@@ -251,8 +263,19 @@ if(enableRedirectionLinks) {
 //			});         
 //			});
 
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
-			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+//Default code for forwarding with added additon to change url to account for our CNAME
+//			if(cirrusServer.address.split('.')[0] == 'vm0')
+//			{
+//				res.redirect(`http://vm0.spaceform.com:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+//			}
+//			else {
+//				res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+//				//console.log(req);
+//				console.log(`Redirect to http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+//			}
+
+			res.render(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+
 		} else {
 			sendRetryResponse(res);
 		}

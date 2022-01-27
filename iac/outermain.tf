@@ -51,7 +51,7 @@ locals {
   global_resource_group_name = format("%s-%s", local.base_name, lower(var.base_resource_group_name))
   subscription_id            = data.azurerm_client_config.current.subscription_id
   tenant_id                  = data.azurerm_client_config.current.tenant_id
-  curr_timestamp             = timestamp()
+  curr_timestamp             = formatdate("DD_MMM_YYYY_hh_mm_ss", timestamp())
 }
 
 ##############################################################
@@ -78,7 +78,7 @@ resource "azurerm_resource_group" "rg_global" {
 
 #this is to create the Global AKV
 resource "azurerm_key_vault" "akv" {
-  name                       = format("akv%s-%s-%s", formatdate("DD_MMM_YYYY_hh_mm_ss", local.curr_timestamp), local.base_name, lower(var.global_region))
+  name                       = format("akv%s-%s-%s", var.vault-key, local.base_name, lower(var.global_region))
   location                   = var.global_region
   resource_group_name        = azurerm_resource_group.rg_global.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
