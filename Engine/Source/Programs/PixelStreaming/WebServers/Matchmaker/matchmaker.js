@@ -124,7 +124,21 @@ if (config.UseHTTPS) {
 				if (httpsPort != 443) {
 					hostAddress = `${hostAddress}:${httpsPort}`;
 				}
-				return res.redirect(['https://', hostAddress, req.originalUrl].join(''));
+				var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+				var token = fullUrl.split('?')[1];
+	
+				var request = require('request');
+	
+				app.route(fullUrl).get(function(req, res, next) {
+	
+				request.get(`https://${cirrusServer.address}:${cirrusServer.port}/?${token}`, function(err, response, body) {
+					if (!err) {
+					req.send(body);
+					}
+				});         
+				});
+				
+				//return res.redirect(['https://', hostAddress, req.originalUrl].join(''));
 			} else {
 				console.error(`unable to get host name from header. Requestor ${req.ip}, url path: '${req.originalUrl}', available headers ${JSON.stringify(req.headers)}`);
 				return res.status(400).send('Bad Request');
@@ -204,7 +218,7 @@ if(enableRedirectionLinks) {
 
 			app.route(fullUrl).get(function(req, res, next) {
 
-			request.get(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`, function(err, response, body) {
+			request.get(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`, function(err, response, body) {
 				if (!err) {
 				req.send(body);
 				}
