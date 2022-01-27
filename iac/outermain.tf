@@ -78,7 +78,7 @@ resource "azurerm_resource_group" "rg_global" {
 
 #this is to create the Global AKV
 resource "azurerm_key_vault" "akv" {
-  name                       = format("akv%s-%s", random_string.base_id.result, lower(var.global_region))
+  name                       = format("akv-%s-%s", random_string.base_id.result, lower(var.global_region))
   location                   = var.global_region
   resource_group_name        = azurerm_resource_group.rg_global.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id

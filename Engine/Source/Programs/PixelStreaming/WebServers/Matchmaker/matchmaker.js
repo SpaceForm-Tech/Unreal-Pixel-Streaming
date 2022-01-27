@@ -66,6 +66,7 @@ if (config.LogToFile) {
 	logging.RegisterFileLogger('./logs');
 }
 
+const vmss = ['vm0', 'vm1', 'vm2', 'vm3', 'vm4', 'vm5', 'vm6', 'vm7', 'vm8', 'vm9', 'vm10', 'vm11', 'vm12', 'vm13', 'vm14', 'vm15', 'vm16', 'vm17', 'vm18', 'vm19', 'vm20'];
 
 /////////////////////////////// AZURE ///////////////////////////////
 // Initialize the Azure module for scale and metric functionality
@@ -227,9 +228,11 @@ if(enableRedirectionLinks) {
 //			});
 	
 //Default code for forwarding with added additon to change url to account for our CNAME
-			if(cirrusServer.address.split('.')[0] == 'vm0')
+
+			var vm = cirrusServer.address.split('.')[0];
+			if(vmss.includes(vm))
 			{
-				res.redirect(`http://vm0.spaceform.com:${cirrusServer.port}/?${token}`);
+				res.redirect(`http://${cirrusServer.address.split('.')[0]}.spaceform.com:${cirrusServer.port}/?${token}`);
 			}
 			else {
 			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
@@ -264,9 +267,11 @@ if(enableRedirectionLinks) {
 //			});
 
 //Default code for forwarding with added additon to change url to account for our CNAME
-			if(cirrusServer.address.split('.')[0] == 'vm0')
+
+			var vm = cirrusServer.address.split('.')[0];
+			if(vmss.includes(vm))
 			{
-				res.redirect(`http://vm0.spaceform.com:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+				res.redirect(`http://${cirrusServer.address.split('.')[0]}.spaceform.com:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
 			}
 			else {
 				res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
