@@ -232,7 +232,7 @@ if(enableRedirectionLinks) {
 			var vm = cirrusServer.address.split('.')[0];
 			if(vmss.includes(vm))
 			{
-				res.redirect(`http://${cirrusServer.address.split('.')[0]}.spaceform.com:${cirrusServer.port}/?${token}`);
+				res.redirect(`http://${cirrusServer.address.split('.')[0]}.space-form.com:${cirrusServer.port}/?${token}`);
 			}
 			else {
 			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
@@ -271,7 +271,7 @@ if(enableRedirectionLinks) {
 			var vm = cirrusServer.address.split('.')[0];
 			if(vmss.includes(vm))
 			{
-				res.redirect(`http://${cirrusServer.address.split('.')[0]}.spaceform.com:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+				res.redirect(`http://${cirrusServer.address.split('.')[0]}.space-form.com:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
 			}
 			else {
 				res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
