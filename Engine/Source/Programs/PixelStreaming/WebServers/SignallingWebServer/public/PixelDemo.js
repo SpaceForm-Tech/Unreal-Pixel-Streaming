@@ -148,7 +148,7 @@ function myHandleResponseFunction(data) {
 		// UE4 only supports up to 1080p, not 4K.
 		console.log("Disabling 4k button");
 		let button4K = document.getElementById("4k");
-		button4K.disabled = true;
+		button4K.remove();
 		button4K.title = "4K is supported only when -NvEncH264ConfigLevel=NV_ENC_LEVEL_H264_52 UE4 is added to UE4 command line";
 	}	
 }
@@ -157,9 +157,9 @@ var grabStyle = 'cursor: grab; cursor: -moz-grab; cursor: -webkit-grab';   // We
 var isFullscreen = false;
 
 function onParagonLoad() {
-	afk.enabled;
-	afk.warnTimeout = 5;
-	afk.closeTimeout = 10;
+	//afk.enabled;
+	//afk.warnTimeout = 5;
+	//afk.closeTimeout = 10;
 	styleAdditional = grabStyle;
 	inputOptions.controlScheme = ControlSchemeType.HoveringMouse;
 	inputOptions.fakeMouseWithTouches = true;
