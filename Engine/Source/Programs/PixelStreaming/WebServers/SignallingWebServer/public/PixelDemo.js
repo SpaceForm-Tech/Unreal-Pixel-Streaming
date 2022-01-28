@@ -106,7 +106,7 @@ function onConfigButton(category, item) {
 
 function onToken() {
 	emitUIInteraction("CheckingURL");
-	var fullUrl = window.location.href
+	var fullUrl = window.location.href;
 	var sendToken = fullUrl.split('?')[1];
 	console.log("'" + sendToken + "'");
     emitUIInteraction(sendToken);

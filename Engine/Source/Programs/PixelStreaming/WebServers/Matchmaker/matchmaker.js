@@ -232,10 +232,23 @@ if(enableRedirectionLinks) {
 			var vm = cirrusServer.address.split('.')[0];
 			if(vmss.includes(vm))
 			{
-				res.redirect(`http://${cirrusServer.address.split('.')[0]}.space-form.com:${cirrusServer.port}/?${token}`);
+				var newPort;
+				if(cirrusServer.port == 80)
+				{
+					newPort = 443;
+				}
+				else if(cirrusServer.port == 81)
+				{
+					newPort = 444;
+				}				
+				else 
+				{
+					newPort = cirrusServer.port;
+				}
+				res.redirect(`https://${cirrusServer.address.split('.')[0]}.space-form.com:${newPort}/?${token}`);
 			}
 			else {
-			res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
+			res.redirect(`https://${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 			//console.log(req);
 			console.log(`Redirect to ${cirrusServer.address}:${cirrusServer.port}/?${token}`);
 			}
@@ -271,12 +284,25 @@ if(enableRedirectionLinks) {
 			var vm = cirrusServer.address.split('.')[0];
 			if(vmss.includes(vm))
 			{
-				res.redirect(`http://${cirrusServer.address.split('.')[0]}.space-form.com:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+				var newPort;
+				if(cirrusServer.port == 80)
+				{
+					newPort = 443;
+				}
+				else if(cirrusServer.port == 81)
+				{
+					newPort = 444;
+				}				
+				else 
+				{
+					newPort = cirrusServer.port;
+				}
+				res.redirect(`https://${cirrusServer.address.split('.')[0]}.space-form.com:${newPort}/custom_html/${req.params.htmlFilename}/?${token}`);
 			}
 			else {
-				res.redirect(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+				res.redirect(`https://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
 				//console.log(req);
-				console.log(`Redirect to http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
+				console.log(`Redirect to https://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
 			}
 
 			//res.render(`http://${cirrusServer.address}:${cirrusServer.port}/custom_html/${req.params.htmlFilename}/?${token}`);
